@@ -1,0 +1,78 @@
+                    14.Custom class
+
+now we are going to create list of about with author and quote property with the hlp of class
+
+for that we are going to create custom class
+
+
+In lib/quotes.dart
+    class Quote {
+
+    String text;
+    String author;
+
+    //  normal constructor, as we've already seen
+
+    //  Quote(String author, String text){
+    //    this.text = text;
+    //    this.author = author;
+    //  }
+
+    //  constructor with named parameters
+
+    //  Quote({ String author, String text }){
+    //    this.text = text;
+    //    this.author = author;
+    //  }
+
+    // constructor with named parameters
+    // & automatically assigns named arguments to class properties
+
+    Quote({ this.text, this.author });
+
+}   
+
+
+In main.dart
+
+//importing quotes class and using it.
+
+import 'package:flutter/material.dart';
+import 'quote.dart';
+
+void main() => runApp(MaterialApp(
+  home: QuoteList()
+));
+
+class QuoteList extends StatefulWidget {
+  @override
+  _QuoteListState createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+
+  List<Quote> quotes = [
+    Quote(author: 'Oscar Wilde', text: 'Be yourself; everyone else is already taken'),
+    Quote(author: 'Oscar Wilde', text: 'I have nothing to declare except my genius'),
+    Quote(author: 'Oscar Wilde', text: 'The truth is rarely pure and never simple')
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text('Awesome Quotes'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+      ),
+      body: Column(
+        children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
+      ),
+    );
+  }
+}
+
+
+quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList()
+    --> displaying both authoe and quotes

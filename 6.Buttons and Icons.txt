@@ -1,0 +1,124 @@
+                                6.button and icon 
+
+Icon 
+Normal button 
+button with Icon
+
+Icon widget is used to display the icon
+
+
+//Icon
+In main.dart
+        import "packages:flutter/material.dart"
+
+        void main() => runApp(materialApp(
+            home : Home()
+        ));
+
+class Home extends StatelessWidget{
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body : Center(
+                    child : Icon(
+                        Icons.airport_shuttle,
+                        color : Colors.bile[600],
+                        size : 20.0
+                    )
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            );
+    }
+}
+
+
+//Normal button
+In button there are two types
+    --> RaisedButton widget used to display button with shadow
+    -->  FlatButton widget used to display button without shadow
+
+onPressed property uses function as its value, which gets triggers user click the button
+In main.dart
+        import "packages:flutter/material.dart"
+
+        void main() => runApp(materialApp(
+            home : Home()
+        ));
+
+class Home extends StatelessWidget{
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body : Center(
+                    child : RaisedButton(
+                        onPressed : (){
+                            print('clicked'),
+                        },
+                        child : Text('Click')
+                        color : Colors.red[600]
+                    ),
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            );
+    }
+}
+
+//button with Icon
+In main.dart
+        import "packages:flutter/material.dart"
+
+        void main() => runApp(materialApp(
+            home : Home()
+        ));
+
+class Home extends StatelessWidget{
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body : Center(
+                    //child : RaisedButton.icon(
+                    //    onPressed : () {},
+                    //    icon : Icon(
+                    //        Icons.mail
+                    //    ),
+                    //    label : Text('Click'),
+                    //    color : Colors.red[600],
+                    //),
+
+                    child : IconButton(
+                        onPressed : () {},
+                        icon : Icon(
+                            Icons.mail
+                        ),
+                        label : Text('Click'),
+                        color : Colors.red[600],
+                    ),
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            );
+    }
+}

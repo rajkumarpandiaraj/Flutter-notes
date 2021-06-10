@@ -1,0 +1,52 @@
+                                5.Images and assets
+we can Images in Flutter in two ways:
+    1.NetworkImage [by hosted image || by image url]
+    2.AssetsImage [local image]
+
+Image widget is used to display images
+image property in Image Widget, takes NetworkImage widget and AssetImage widget as value.
+
+NetworkImage widget to display the NetworkImage
+AssetImage widget to display the AssetImage
+
+    In main.dart
+        import "packages:flutter/material.dart"
+
+        void main() => runApp(materialApp(
+            home : Home()
+        ));
+
+class Home extends StatelessWidget{
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body : Center(
+                    // child :Image(
+                    //     //image : NetworkImage('image url'), //hosted image url
+                    //     image : AssetImage('assets/<image1.jpeg>')
+                    // )
+
+                //shortcut
+                    //child : image.asset('path')
+                    child : image.network('url'),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            );
+    }
+}
+
+To display the local Images :
+    1.make assets folder and paste the images in my_app folder
+    2.In pubspec.yaml
+        assets:
+            -assets/<image1.jpeg>
+            -assets/<image2.jpeg>
+                    or 
+            -assets/ //you can access everything in the assets folder

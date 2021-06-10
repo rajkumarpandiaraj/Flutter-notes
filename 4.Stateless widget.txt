@@ -1,0 +1,43 @@
+                    4.Stateless widget and hot reload
+
+Stateless widgets
+    --> the State of the widget cannot change over the time
+
+Statefull widgets
+    --> the state of the widget can change over time.
+
+In main.dart
+        import "packages:flutter/material.dart"
+
+        void main() => runApp(materialApp(
+            home : Home()
+        ));
+
+class Home extends StatelessWidget{
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body : Center(
+                    child : Text(
+                        'Hello Ninjas',
+                        style : TextStyle(
+                            fontSize : 20.0,
+                            fontWeight : Fontweight.bold,
+                            letterSpacing : 2.0,
+                            color : Colors.grey[600],
+                            fontFamily: Indiflower,
+                        ),
+                    ),
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            );
+    }
+}

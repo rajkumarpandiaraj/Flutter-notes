@@ -1,0 +1,49 @@
+                        7.Container,padding,margin
+
+class Home extends StatelessWidget{
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body :Container(
+                    //padding: EdgeInserts.all(20.0), //20px padding for all the sides
+                    //padding : EdgeInserts.symmetric(horizontal:20.0, vertical: 10.0)//20px left nd right, 10px top and bottom
+                    padding : EdgeInserts.from(10.o,20.0,30.0,40.0) //left,top,right,bottom
+                    margin : EdgeInserts.all(10.0) // above three suits for margin also,
+                    color:Colors.red[600], //now the Container take whole widtth and height of the body,if we add the widget to the child,takes that widget height nd width.
+                    child: Text('Hello')
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            );
+    }
+}
+
+if you don't want to use margin and color property use Padding Widget instead of Container widget
+
+class Home extends StatelessWidget{
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body :Padding(
+                    padding : EdgeInserts.fromLTFB(10.o,20.0,30.0,40.0) //left,top,right,bottom
+                    child: Text('Hello')
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            );
+    }
+}

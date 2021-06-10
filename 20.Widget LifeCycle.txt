@@ -1,0 +1,24 @@
+                    20.Widget LifeCycle
+
+StatelessWidget
+    --> state does not change over time.
+    --> build function only runs once
+
+stateful
+    --> state can change over time
+    --> setState() triggers the build function
+
+In stateful widget:
+
+    initState():
+     --> called only once when the widget is created.
+     -->Subscribe to the stream or any object thet could change our data.
+
+     Build() :
+        --> builds the sidget tree
+        --> A build is triggered every time we use setState()
+
+    Dispose() :
+        --> when the widget/state is removed.
+
+        

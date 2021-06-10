@@ -1,0 +1,70 @@
+                            9.Columns
+
+Column itself is a widget which takes many widgets as its children
+
+children property takes widgets array/List
+
+class Home extends StatelessWidget{
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body : Column(
+                    //mainAxisAlignment : MainAxisAlignment.center,
+                    //mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                    //mainAxisAlignment : MainAxisAlignment.spaceEvenly,
+                    //mainAxisAlignment : MainAxisAlignment.spaceAround,
+                    //mainAxisAlignment : MainAxisAlignment.end,
+                    mainAxisAlignment : MainAxisAlignment.start, //default one
+
+                    //crossAxisAlignment : CrossAxisAlignment.stretch,
+                    //crossAxisAlignment : CrossAxisAlignment.center,//default one
+                    //crossAxisAlignment : CrossAxisAlignment.end,
+                    crossAxisAlignment : CrossAxisAlignment.start,
+                    children : <widget> [
+                        Text('Hello'),
+                        FlatButton(
+                            child : Text('Click'),
+                            onPressed : (){}
+                        ),
+                        Container(
+                            color : Colors.red[600],
+                            padding:EdgeInserts.all(20.0),
+                            child: Text('container')
+                        ),
+                        Row(
+                            Text('one'),
+                            Text('Two')
+                        )
+                    ]
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            );
+    }
+}
+
+Column displays every widgets in one by one
+
+You can add Row widget inside Column and Column widget inside a Row
+
+In Column widget ;
+
+            |
+            |
+            |
+            |--> Main Axis
+            |
+            |
+            |
+            |
+       _____|____________________________
+            |       Cross Axis
+            |
+

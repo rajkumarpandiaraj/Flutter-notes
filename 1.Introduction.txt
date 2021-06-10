@@ -1,0 +1,40 @@
+                                    1.Introduction.txt
+
+What is Flutter?
+    --> Mobile UI framework for creating native apps for IOs and android
+    --> Sigle code-base mean we only have to write our app once for multiple devices.
+
+--> Every thing in flutter is widget
+--> widget has different properties
+
+Install flutter SDk, android studio and android emulator.
+
+And create the first flutter app and the proj name is my_app
+
+Folder Structure
+    -->(F) my_app //proj Folder
+    |        |
+    |        |
+    |        -->(F) Android //this for android
+    |        |
+    |        |
+    |        -->(F) iOS //this is for iOS
+    |        |
+    |        |
+    |        -->(F)lib //99% we work in this folder
+    |        |    |
+    |        |    |
+    |        |    -->(f) main.dart // this is the place where our source code goes.
+    |        -->(F)test // for testing the code
+    -->(F) External libraries
+
+    In main.dart
+        import "packages:flutter/material.dart"
+
+        void main() => runApp(materialApp({
+            home : Text('Hello Ninjas'),
+        }));
+
+        runApp() // runs the widget
+        //materialApp() is the material widget like container
+        

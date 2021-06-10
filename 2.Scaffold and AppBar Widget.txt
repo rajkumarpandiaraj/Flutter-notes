@@ -1,0 +1,37 @@
+                            2.Scaffold and AppBar Widget
+
+Widget names uses pascal case
+Text widget --> allow us to display text
+Center widget --> used to center the content
+child property --> allow us to nest one widget into another
+
+
+home property --> is the home page of the app.../Take Scaffold Widget as value
+    Scaffold Widget --> allows us to implement basic layouts like appBar,flotingactionbutton etc....
+        appBar property --> used to display appBar.../Takes AppBar widget as value
+            AppBar widget --> allow us to create appBar.
+            centerTitle property --> default title display at the left, to center the title use this property
+    body property --> use body to display whatever you want to display in the body of the screen
+    floatingActionButton property --> used to display the floating button at the right corner
+        FloatingActionButton widget --> allow us to perform actions
+
+    In main.dart
+        import "packages:flutter/material.dart"
+
+        void main() => runApp(materialApp(
+            home : Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                ),
+                body : Center(
+                    child : Text('Hello Ninjas')
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click')
+                )
+            ),
+        ));
+
+for more about Scaffold Widget
+https://api.flutter.dev/flutter/material/Scaffold-class.html

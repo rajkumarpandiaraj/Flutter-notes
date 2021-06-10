@@ -1,0 +1,44 @@
+                                    21.Flutter Packages [async,await]
+
+
+To install different pakages visit pub.dev/package
+Now installing http package to make async call 
+
+
+In loading.dart
+
+    import 'package:flutter/material.dart';
+    import 'package:http/http.dart'; //importig the http pakage
+    import 'dart:convert'; //import the package to convert the http res to json
+    
+    class Loading extends StatefulWidget {
+      @override
+      _LoadingState createState() => _LoadingState();
+    }
+    
+    class _LoadingState extends State<Loading> {
+    
+      void getData() async {
+        
+        Response response = await get('https://jsonplaceholder.typicode.com/todos/1'); //making call
+        // print(response.body);
+        Map data = jsonDecode(response.body);//converting response to json
+        print(data);
+        print(data['title']);
+    
+      }
+    
+      @override
+      void initState() {
+        super.initState();
+        getData();
+      }
+    
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          body: Text('loading screen'),
+        );
+      }
+    }
+

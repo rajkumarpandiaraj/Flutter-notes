@@ -1,0 +1,84 @@
+                                16.Extracting widget
+
+In the last tutorial we function which returns widget to list the data in the List.
+
+But now we are going to create seperate stateless for the card and re-using that widget wherever you want.
+
+In lib/quote_card.dart
+    import 'package:flutter/material.dart';
+import 'quote.dart';
+
+class QuoteCard extends StatelessWidget {
+
+  final Quote quote; //using final keyword because stateless widget doesn't take dynamic value, so saying that this is static value
+  QuoteCard({ this.quote }); //using the Quote custom class to create the quote obj
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                quote.text,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.grey[600],
+                ),
+              ),
+              SizedBox(height: 6.0),
+              Text(
+                quote.author,
+                style: TextStyle(
+                  fontSize: 14.0,
+                  color: Colors.grey[800],
+                ),
+              ),
+            ],
+          ),
+        )
+    );
+  }
+}
+//////////////////////////////////////////////////////////////////////////////////
+
+In main.dart
+    import 'package:flutter/material.dart';
+import 'quote.dart';
+import 'quote_card.dart'; //importing the quote Card widget
+
+void main() => runApp(MaterialApp(
+  home: QuoteList()
+));
+
+class QuoteList extends StatefulWidget {
+  @override
+  _QuoteListState createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+
+  List<Quote> quotes = [
+    Quote(author: 'Oscar Wilde', text: 'Be yourself; everyone else is already taken'),
+    Quote(author: 'Oscar Wilde', text: 'I have nothing to declare except my genius'),
+    Quote(author: 'Oscar Wilde', text: 'The truth is rarely pure and never simple')
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text('Awesome Quotes'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+      ),
+      body: Column(
+        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(), //using the QuoteCard widget
+      ),
+    );
+  }
+}

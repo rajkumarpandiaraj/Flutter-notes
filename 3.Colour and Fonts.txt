@@ -1,0 +1,44 @@
+                                3.Colour and Fonts
+
+backgroundColour property adds background Colour to the widget
+style property in Text widget takes TextStyle widget as value which allow us to style the text
+
+ In main.dart
+        import "packages:flutter/material.dart"
+
+        void main() => runApp(materialApp(
+            home : Scaffold(
+                appBar : AppBar(
+                    title : Text('My First App'),
+                    centerTitle : true, 
+                    backgroundColor :Colors.red[600],
+                ),
+                body : Center(
+                    child : Text(
+                        'Hello Ninjas',
+                        style : TextStyle(
+                            fontSize : 20.0,
+                            fontWeight : Fontweight.bold,
+                            letterSpacing : 2.0,
+                            color : Colors.grey[600],
+                            fontFamily: Indiflower,
+                        ),
+                    ),
+                ),
+                floatingActionButton : FloatingActionButton(
+                child : Text('Click'),
+                backgroundColor :Colors.red[600],
+                ),
+            ),
+        ));
+
+To add custom font 
+    1.download the font fro the google and extract it 
+    2.create new folder name fonts in my_app and copy paste the font 
+    3.tell the flutter about the fonts
+        In pubspec.yaml
+            fonts:
+              family: Indiflower <fontName>
+              fonts:
+                assets: fonts/indiflower-regular.txt
+    4.use the custom by refering font name<Indiflower>

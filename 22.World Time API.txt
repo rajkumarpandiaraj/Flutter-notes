@@ -1,0 +1,49 @@
+                    22.World Time api
+
+we are goig to make a call to the api
+
+In loading.dart
+
+
+    import 'package:flutter/material.dart';
+    import 'package:http/http.dart';
+    import 'dart:convert';
+
+    class Loading extends StatefulWidget {
+      @override
+      _LoadingState createState() => _LoadingState();
+    }
+
+    class _LoadingState extends State<Loading> {
+
+      void getTime() async {
+        // make the request
+        Response response = await get('http://worldtimeapi.org/api/timezone/Europe/London'); making the call to the api
+        Map data = jsonDecode(response.body); //converting response to json
+        //print(data);
+
+        // get properties from json
+        String datetime = data['datetime']; //accessing datetime properties from the response
+        String offset = data['utc_offset'].substring(1,3); //accessing utc_offset properties from the response and spliting the '+' symbol 
+        //print(datetime);
+        //print(offset);
+
+        // create DateTime object
+        DateTime now = DateTime.parse(datetime); //creating the date object
+        now = now.add(Duration(hours: int.parse(offset))); //adding the utc_offset with the date object t get the current date of the london
+        print(now);
+      }
+
+      @override
+      void initState() {
+        super.initState();
+        getTime();
+      }
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          body: Text('loading screen'),
+        );
+      }
+    }

@@ -1,0 +1,29 @@
+                        19.Routes and Maps/Obj.txt
+
+To define Routes in flutter use routes property in materialApp which takes maps/obj as its value which consist of routes
+
+syntax :
+    routes : {
+        'path' : (context) => widget()
+    }
+
+path key takes function as its value with context as argand returns Widget
+ context holds the information of the routes.
+
+In main.dart
+import 'package:flutter/material.dart';
+import 'package:world_time_app/pages/home.dart';
+import 'package:world_time_app/pages/loading.dart';
+import 'package:world_time_app/pages/choose_location.dart';
+
+void main() => runApp(MaterialApp(
+
+    initialRoute: '/home', //for developing purpose initialRoute should be '/home'
+    routes: {
+      '/': (context) => Loading(), //after finished the app first we have show the loading page
+      '/home': (context) => Home(), //and then home page.
+      '/location': (context) => Location(),
+    }
+));
+
+while loading the location page in Home page, location page load above the Home page.

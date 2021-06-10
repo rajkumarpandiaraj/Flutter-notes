@@ -1,0 +1,87 @@
+                        30.Passing Route data
+
+Now we are geting the time in the loading page.
+so page the time to the Homepage through Route
+
+In loading.dart 
+mport 'package:flutter/material.dart';
+import 'package:world_time_app/services/world_time.dart';
+
+class Loading extends StatefulWidget {
+  @override
+  _LoadingState createState() => _LoadingState();
+}
+
+class _LoadingState extends State<Loading> {
+
+  void setupWorldTime() async {
+    WorldTime instance = WorldTime(location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
+    await instance.getTime();
+    //Navigator.pushNamed(context, '/home') pushh the home page above the loading page so we are using another one
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setupWorldTime();
+  }
+ @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(50.0),
+        child: Text('loading'),
+      ),
+    );
+  }
+}
+
+In home.dart
+import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  Map data = {};
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    data = ModalRoute.of(context).settings.arguments;//getting the route args data
+    print(data);
+
+    return Scaffold(
+      //appBar: AppBar(),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            FlatButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, '/location');
+              },
+              icon: Icon(Icons.edit_location),
+              label: Text(
+                'Edit Location'
+              )
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+

@@ -1,0 +1,74 @@
+                                    18.World Time App
+
+Now we are going to make World time App
+In this app there are three pages, loading page,Home page and Location page.
+
+In the lib folder create pages folder
+In Pages folder create different file fr different Pages
+        pages
+            -->loading.dart
+            -->home.dart
+            -->location.dart
+
+In home.dart //creating stateful widget
+import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea( //safeArea widget pushes the text to the safe area of the screen
+        child: Text('home screen'),
+      ),
+    );
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+
+In loading.dart
+
+import 'package:flutter/material.dart';
+
+class Loading extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Text('loading screen'),
+    );
+  }
+}
+
+///////////////////////////////////////////////////
+
+In location.dart // stateful widget
+
+import 'package:flutter/material.dart';
+
+class ChooseLocation extends StatefulWidget {
+  @override
+  _ChooseLocationState createState() => _ChooseLocationState();
+}
+
+class _ChooseLocationState extends State<ChooseLocation> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+///////////////////////////////////////////////////////
+
+In app.dart 
+
+
+import 'package:flutter/material.dart';
+import 'package:world_time_app/pages/home.dart'; // package:app_name/don't need to mention lib folder/path_to_the file
+
+void main() => runApp(MaterialApp(
+  home: Home(),
+));
